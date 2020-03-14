@@ -2,6 +2,7 @@ import { Router } from 'express';
 import UserMiddleware from '../middlewares/UserMiddleware';
 import SessionController from '../app/controllers/SessionController';
 import UserController from '../app/controllers/UserController';
+import JsonDataBaseController from '../app/controllers/JsonDataBaseController';
 
 const routes = new Router();
 
@@ -21,5 +22,7 @@ routes.post(
   UserMiddleware.checkIfUserExists,
   SessionController.store
 );
+
+routes.get('/json', JsonDataBaseController.store);
 
 export default routes;
